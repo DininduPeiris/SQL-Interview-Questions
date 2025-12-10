@@ -1,6 +1,8 @@
 # SQL-Interview-Questions
 To Share SQL knowledge and findings
 
+Video link - https://www.youtube.com/watch?v=-WEpWH1NHGU
+
 1. What is the difference between DELETE and TRUNCATE?
 
 ### DELETE
@@ -191,5 +193,87 @@ To Share SQL knowledge and findings
 
 26. Write a SQL query to find the names of the employees that begin with 'A'?
 * SELECT * FROM employee WHERE empName LIKE 'A%'
+
+27. End with 'A'
+* SELECT * FROM employee WHERE empName LIKE '%A'
+
+28. Write a SQL query to get the third-highest salary of an employee from employee_table?
+* SELECT * FROM employee_table ORDER BY salary DESC LIMIT 2,1
+
+29. What is the difference between 'BETWEEN' and 'IN' condition operators?
+### BETWEEN
+* used to display rows based on a range of values in a row.
+* SELECT * FROM students WHERE roll_no BETWEEN 10 AND 50
+
+### IN
+* Used to check for values contained in a specific set of values.
+* SELECT * FROM students WHERE roll_no IN (8, 15, 11);
+
+30. Why are SQL functions used?
+* To perform some calculations
+* To modify individual data items
+* To manipulate the output
+* To format dates and numbers
+* To convert the data types
+
+31. What is the difference between the 'HAVING' clause and the 'WHERE' clause?
+### HAVING
+* Filters groups after the GROUP BY and aggregation have been applied.
+* Works On: Aggregate functions, Grouped results
+
+```sql
+SELECT department, COUNT(*) AS total
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 10;   -- filters groups after aggregation
+```
+
+### WHERE
+* Filters rows before grouping or aggregation.
+* Works On: Individual rows, Non-aggregated columns
+* Cannot use: Aggregate functions (SUM, COUNT, AVG, MAX, MIN)
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+WHERE salary > 50000   -- filters rows before grouping
+GROUP BY department;
+```
+
+32. How can you select unique records from a table?
+* SELECT DISTINCT studentID FROM student;
+
+33. What is a View?
+* A view is a saved SQL query that behaves like a table. It provides a predefined way to look at data without storing duplicate data.
+
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+```
+
+34. What is a stored procedure?
+* A stored procedure is a named database object that contains one or more SQL statements and is stored on the database server. It is executed as a single unit, often with input/output parameters. Stored procedures enhance performance, security, and maintainability.
+
+```sql
+CREATE PROCEDURE GetHighSalaryEmployees(IN minSalary INT)
+BEGIN
+    SELECT name, salary
+    FROM employees
+    WHERE salary > minSalary;
+END;
+
+```
+
+```sql
+CALL GetHighSalaryEmployees(50000);
+```
+
+
+
+
+
+
 
 
