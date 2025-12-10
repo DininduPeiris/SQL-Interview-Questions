@@ -96,10 +96,100 @@ To Share SQL knowledge and findings
 * Left Join - records from the left table, and also those records that satisfy the condition from the right table.
 * Right Join - records from the right table, and also those records that satisfy the condition from the left table.
 
+16. What do you mean by Denormalization?
+* refers to a technique that is used to access data from higher to  lower forms of a database.
+* increase the performance
+* introduce data redundancy
+* combine data from various tables into a single table.
 
+17. What are Entities and Relationships?
+* An Entity is any object, person, place, event, or concept that you want to store information about in a database.
+* A Relationship describes how two entities are connected.
 
+18. What is an Index?
+* Performance tuning method
+* Allows faster retrieval of records from the table
+* Creates an entry for each value.
 
+19. Explain different types of index.
+### Unique Index
+* does not allow duplicate values
 
+### Clustered Index
+* reorders the physical order of the table and searches based on the basis of key values.
+* Only one clustered index per table.
 
+### Non-Clustered Index
+* does not alter the physical order of the table and maintains a logical order of the data.
+* Each table can have many non-clustered indexes.
+
+20. What is Normalization, and what are the advantages of it?
+* process of organizing data to avoid duplication and redundancy.
+### Advantages
+* Better DB organization
+* More tables with smaller rows.
+* Efficient data access
+* Greater flexibility of queries.
+* Quickly find the information
+* Easier to implement security
+* Allows easy modification.
+* Reduce duplicating data.
+* Compact database.
+* ensure consistent data after modification
+
+21. What is the difference between DROP and Truncate commands?
+### DROP
+* removes a table
+* cannot rollback
+* DROP TABLE table_name;
+
+### TRUNCATE
+* removes all rows of the table.
+* cannot rollback
+* TRUNCATE TABLE table_name;
+
+22. Explain the different types of Normalization.
+<img width="1036" height="753" alt="image" src="https://github.com/user-attachments/assets/5c4e5905-3b35-4e22-aa2f-ddc96ef9e581" />
+
+<img width="1188" height="816" alt="image" src="https://github.com/user-attachments/assets/c317ad8c-6baa-405c-af90-81f38dcde781" />
+
+### 1 NF  
+* Each table cell should have a single value. So, basically, all the records must be unique.
+<img width="1135" height="640" alt="image" src="https://github.com/user-attachments/assets/3042c5dc-7ba8-4171-a348-16bddfd57f8b" />
+
+### 2 NF 
+* Database should be 1NF and should also have a single-column primary key.
+<img width="1067" height="552" alt="image" src="https://github.com/user-attachments/assets/1a94fcd9-6028-4c6f-a904-087e8d5e6b8a" />
+
+### 3 NF
+* The database should be in 2NF and must not have any transitive functional dependencies.
+<img width="1182" height="492" alt="image" src="https://github.com/user-attachments/assets/0b401c33-5161-4953-91e1-89d70e5213d4" />
+
+### BCNF
+* If your database is in 3rd Normal Form, there would be some scenarios where anomalies would be present if you have more than one candidate key.
+* Then BCNF comes into role, where you divide your tables further so that there would be only one candidate key present.
+* Candidate Key - A candidate key is any attribute or set of attributes that can uniquely identify a record in a table.
+
+23. What is the ACID property in a database?
+* A - Atomicity - A transaction must be treated as a single, indivisible unit.
+* C - Consistency - A transaction must bring the database from one valid state to another valid state,
+* I - Isolation - Concurrency control - Each transaction must run as if it is the only transaction in the system. Transactions should not interfere with each other’s intermediate states.
+* D - Durability - Once a transaction is committed, its data must be permanently saved—even if the system crashes immediately afterward.
+
+24. What do you mean by "Trigger" in SQL?
+* Triggers in SQL are a special type of stored procedure that are defined to execute automatically in place or after data modifications. It allows you to execute a batch of code when an insert, update, or any other query is executed against a specific table.
+* 6 types
+  1. BEFORE INSERT
+  2. AFTER INSERT
+  3. BEFORE UPDATE
+  4. AFTER UPDATE
+  5. BEFORE DELETE
+  6. AFTER DELETE
+
+25. To count the number of records in a table
+* SELECT COUNT(*) FROM table1
+
+26. Write a SQL query to find the names of the employees that begin with 'A'?
+* SELECT * FROM employee WHERE empName LIKE 'A%'
 
 
